@@ -64,8 +64,6 @@ def category_posts(request, category_slug):
     posts_in_category = [
         post for post in posts if post.get('category') == category_slug
     ]
-    if not posts_in_category:
-        raise Http404(f"Категория {category_slug} не найдена или пуста")
     return render(request, 'blog/category.html', {
         'category_slug': category_slug,
         'posts': posts_in_category
